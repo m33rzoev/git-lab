@@ -2,10 +2,10 @@ name: CI
 
 on:
   push:
-    branches: [ "main", "development", "release" ]
+    branches: [ "main", "development", "release", "setup-ci" ]
     tags: [ "*" ]
   pull_request:
-    branches: [ "main", "development", "release" ]
+    branches: [ "main", "development", "release", "setup-ci" ]
 
 jobs:
   test:
@@ -26,10 +26,3 @@ jobs:
 
       - name: Run tests
         run: pytest -q
-
-      - name: Archive test results (logs)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: pytest-logs
-          path: .
