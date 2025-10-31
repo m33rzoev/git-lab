@@ -1,20 +1,10 @@
-def add(a, b):
-    """Сложение двух чисел"""
-    return a + b
-
-
-def subtract(a, b):
-    """Вычитание"""
-    return a - b
-
-
-def multiply(a, b):
-    """Умножение"""
-    return a * b
-
-
-def divide(a, b):
-    """Деление с проверкой на ноль"""
-    if b == 0:
-        raise ValueError("Деление на ноль недопустимо")
-    return a / b
+# Стало
+def calculate(a, b, operation):
+    """Выполняет арифметическую операцию над двумя числами."""
+    operations = {
+        "add": lambda x, y: x + y,
+        "sub": lambda x, y: x - y,
+        "mul": lambda x, y: x * y,
+        "div": lambda x, y: x / y if y != 0 else 0,
+    }
+    return operations.get(operation, lambda *_: None)(a, b)
