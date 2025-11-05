@@ -8,3 +8,4 @@ if __name__ == "__main__":
         print(f"{i}. {note}")
 App initialized by person1
 New feature X developed by person1
+New change in dev1 for squash
