@@ -1,4 +1,4 @@
-print("App started")
+print("DEV3 edit on line 1")
 from utils import greet, save_note, load_notes
 
 if __name__ == "__main__":
