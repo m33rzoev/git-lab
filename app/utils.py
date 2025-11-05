@@ -14,3 +14,5 @@ def load_notes():
         return []
     with open(DATA, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
+# new constant added by person2
+PI = 3.14159
