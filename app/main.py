@@ -1,3 +1,4 @@
+print("App started")
 from utils import greet, save_note, load_notes
 
 if __name__ == "__main__":
