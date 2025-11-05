@@ -9,3 +9,4 @@ if __name__ == "__main__":
 App initialized by person1
 New feature X developed by person1
 New change in dev1 for squash
+Conflicting change in main.py
