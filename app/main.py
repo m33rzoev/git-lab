@@ -1,12 +1,16 @@
-from utils import greet, save_note, load_notes
+from app.utils import greet, save_note, load_notes
+
 
 def run():
-    print("App started")
-    print("App initialized by person1")
+    """Main entry point of the app."""
+    print("App started successfully.")
     print(greet("Student"))
-    save_note("Первый запуск приложения")
-    for i, note in enumerate(load_notes(), 1):
+    save_note("Application initialized by person1.")
+    notes = load_notes()
+    print("Notes:")
+    for i, note in enumerate(notes, 1):
         print(f"{i}. {note}")
+
 
 if __name__ == "__main__":
     run()
