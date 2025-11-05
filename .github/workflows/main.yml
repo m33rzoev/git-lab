@@ -31,7 +31,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pdoc
 
-      # 👇 фикс, чтобы тесты нашли модуль app
       - name: Add repo root to PYTHONPATH
         run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
 
@@ -39,15 +38,17 @@ jobs:
         run: pytest -q
 
       - name: Build documentation (pdoc)
+        if: matrix.python-version == '3.11'
         run: |
           python -m pdoc -o docs-html app
 
       - name: Upload documentation artifact
+        if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
           name: docs-html
           path: docs-html/
-
+          overwrite: true  # на всякий случай, если перезапустишь джоб
   automerge:
     needs: test
     if: github.event_name == 'pull_request'
@@ -57,7 +58,6 @@ jobs:
         uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_FILTER_AUTHOR: ""
           MERGE_LABELS: automerge
           MERGE_METHOD: squash
           MERGE_DELETE_BRANCH: "true"
