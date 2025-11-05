@@ -1,13 +1,12 @@
-print("DEV3 edit on line 1")
 from utils import greet, save_note, load_notes
 
-if __name__ == "__main__":
+def run():
+    print("App started")
+    print("App initialized by person1")
     print(greet("Student"))
     save_note("Первый запуск приложения")
     for i, note in enumerate(load_notes(), 1):
         print(f"{i}. {note}")
-App initialized by person1
-New feature X developed by person1
-New change in dev1 for squash
-Feature change made in dev3
->>>>>>> origin/dev3
+
+if __name__ == "__main__":
+    run()
